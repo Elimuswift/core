@@ -37,7 +37,7 @@ class EnvatoApi {
 	/**
 	 * Make a call to the Envato API to verify purchase
 	 *
-	 * @return string Guzzle\Response::getBody()
+	 * @return mixed Guzzle\Response::getBody()
 	 * @param string $code 
 	 **/
 	public function getPurchaseData( $code ) 
