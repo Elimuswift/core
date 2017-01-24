@@ -15,11 +15,11 @@ class LicenseChecker
     public function handle($request, Closure $next, $licenseKey = null)
     {
         
-    	if($this->validLicense($licenseKey)){
+    	if ($this->validLicense($licenseKey)) {
         	return $next($request);
     	}
-    	else{
-    		return response()->json(['UnAuthorized' => 'Invalid Purchase Key'],403);
+    	else {
+    		return response()->json(['UnAuthorized' => 'Invalid Purchase Key'], 403);
     	}
 
     }
@@ -32,8 +32,8 @@ class LicenseChecker
     private function validLicense($licenseKey)
     {
 
-        $purchase = app()->envatoapi->verifyPurchase($licenseKey );
-        if ( is_array($purchase) and $purchase['status'] == 'success') {
+        $purchase = app()->envatoapi->verifyPurchase($licenseKey);
+        if (is_array($purchase) and $purchase['status'] == 'success') {
             return true;
         }
         return false;
