@@ -70,7 +70,7 @@ class EnvatoApi {
 		$purchase = [];
 	    $purchase['response'] = (object) $this->getPurchaseData($code); 
 	    if($purchase->error)
-	    	return $purchase['status'] => 'error';
+	    	return $purchase['status'] = 'error';
 	    else
 	    	return $purchase['status'] = 'success';
 	}
