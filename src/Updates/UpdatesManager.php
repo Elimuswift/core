@@ -2,6 +2,7 @@
 namespace Elimuswift\Core\Updates;
 
 use Elimuswift\Core\Update;
+use Elimuswift\Core\Repositories\Contracts\RepositoryContract;
 
 /**
 * Manage application updates
@@ -19,19 +20,20 @@ class UpdatesManager
 	 * 
 	 **/
 	
-	public function __construct(UpdatesRepository $update)
+	public function __construct(RepositoryContract $repository)
 	{
-		# code...
+		$this->repository = $repository;
 	}
 
 	/**
-	 * Return all the available releses
+	 * Determin if the customer has already verified the product
 	 *
-	 * @return mixed Collection
-	 *  
+	 * @return void
+	 * @param string $purchaseKey 
 	 **/
-	public function releases()
+	public function verifyCustomer($purchaseKey)
 	{
+		$this->repository->findCustomer($purchaseKey);
 	}
 
 	/**

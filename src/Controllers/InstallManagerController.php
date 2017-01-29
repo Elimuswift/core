@@ -9,7 +9,7 @@ use Elimuswift\Core\Contacts\CustomersRepository;
 /**
 * 
 */
-class UpdateManagerController extends Controller
+class InstallManagerController extends Controller
 {
 	// When including ths trait make sure you inject RepositoryContract as $repository and 
 	// CustomersRepository as $customers to the constructor
@@ -45,14 +45,14 @@ class UpdateManagerController extends Controller
 	 * @return mixed Illuminate\Http\Response
 	 * @param $version Version to fetch 
 	 **/
-	public function fetchUpdate($version)
+	public function getInstaller($version)
 	{
-		$this->getCustomer();
+		$response = $this->verifyPurchase();
 		if(null == $this->customer)
 			return $this->invalidKeyResponse();
-		$update = $this->repository->config('updates.updatesPath')."/update_{$version}.zip";
-		if(file_exists($update)){
-			return response()->download($update);
+		$install = $this->repository->config('install.resourcePath')."/install_{$version}.zip";
+		if(file_exists($install)){
+			return response()->download($install);
 		}
 
 	}

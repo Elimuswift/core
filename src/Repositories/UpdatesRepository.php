@@ -68,6 +68,19 @@ class UpdatesRepository implements Contracts\RepositoryContract
 		return $this->updates->orderBy('version','DESC')->first();
 	}
 
+	/**
+	 * Get config properties
+	 *
+	 * @return mixed
+	 **/
+	public function config($property)
+	{
+		if(config()->has("core.{$property}")){
+			return config()->get("core.{$property}");
+		}
+		throw new \Exception("Property {$property} does not exist", 1);	
+	}
+
 
 
 }

@@ -24,6 +24,10 @@ class ElimuswiftCoreServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->mergeConfigFrom(
+            __DIR__.'/config/core.php', 'core'
+        );
+        
         $this->app->singleton('envatoapi', function(){
             return new EnvatoApi(env('ENVATO_SECRET'));
         });
@@ -39,6 +43,9 @@ class ElimuswiftCoreServiceProvider extends ServiceProvider
      **/
     protected function loadFiles()
     {
+         $this->publishes([
+            __DIR__.'config/core.php' => config_path('core.php'),
+        ]);
         $this->loadMigrationsFrom(__DIR__.'/Migrations');
         $this->loadRoutesFrom(__DIR__.'/routes.php');
     }
