@@ -11,21 +11,23 @@ use Elimuswift\Core\Contacts\CustomersRepository;
 */
 class InstallManagerController extends Controller
 {
-	// When including ths trait make sure you inject RepositoryContract as $repository and 
-	// CustomersRepository as $customers to the constructor
+	/**
+	* When including this trait make sure you inject RepositoryContract as $repository 
+	* and CustomersRepository as $customers to the constructor
+	*/
 	use VerifiesPurchase;
 	
 	/**
 	 * Update Repository 
 	 *
-	 * @var mixed
+	 * @var mixed $repository
 	 **/
 	public $repository;
 
 	/**
 	 * Customers Repository 
 	 *
-	 * @var mixed
+	 * @var mixed $customers
 	 **/
 	public $customers;
 
@@ -40,7 +42,8 @@ class InstallManagerController extends Controller
 	}
 
 	/**
-	 * 
+	 * Get the installer zip file for the version specified
+	 * NOTE: The purchase key must be passed in the request for verification
 	 *
 	 * @return mixed Illuminate\Http\Response
 	 * @param $version Version to fetch 

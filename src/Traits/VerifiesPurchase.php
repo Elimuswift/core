@@ -36,7 +36,7 @@ trait VerifiesPurchase {
 	/**
 	 * Return invalid key response
 	 *
-	 * @return mixed Illuminate\Http\Response 
+	 * @return Illuminate\Http\Response 
 	 **/
 	protected function invalidKeyResponse()
 	{
@@ -56,7 +56,7 @@ trait VerifiesPurchase {
 	/**
 	 * Return a success response if the purchase key is valid.
 	 *
-	 * @return nixed Illuminate\Http\Response object 
+	 * @return Illuminate\Http\Response json object response 
 	 **/
 	protected function validKeyResponse()
 	{

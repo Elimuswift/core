@@ -6,30 +6,42 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateUpdatesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('updates', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('version',10);
-            $table->string('type');
-            $table->text('description');
-            $table->integer('downloads');
-            $table->timestamps();
-        });
-    }
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+		Schema::create('updates', function (Blueprint $table) {
+			$table->increments('id');
+			$table->string('title');
+			$table->string('version',10);
+			$table->string('type');
+			$table->text('description');
+			$table->integer('downloads');
+			$table->timestamps();
+		});
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('updates');
-    }
+		Schema::create('customers', function (Blueprint $table) {
+		    $table->increments('id');
+		    $table->string('name');
+		    $table->string('purchaseKey');
+		    $table->timestamp('support_ends');
+		    $table->string('email')->unique();
+		    $table->timestamps();
+		    //
+		});
+	}
+
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::dropIfExists('customers');
+		Schema::dropIfExists('updates');
+	}
 }

@@ -65,7 +65,7 @@ class UpdatesRepository implements Contracts\RepositoryContract
 	 **/
 	public function latest()
 	{
-		return $this->updates->orderBy('version','DESC')->first();
+		return $this->updates->orderBy('version', 'DESC')->first();
 	}
 
 	/**

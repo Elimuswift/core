@@ -27,7 +27,7 @@ class ElimuswiftCoreServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__.'/config/core.php', 'core'
         );
-        
+
         $this->app->singleton('envatoapi', function(){
             return new EnvatoApi(env('ENVATO_SECRET'));
         });
@@ -39,7 +39,7 @@ class ElimuswiftCoreServiceProvider extends ServiceProvider
      * Load and publish app migration files
      *
      * @return void
-     * 
+     *
      **/
     protected function loadFiles()
     {
