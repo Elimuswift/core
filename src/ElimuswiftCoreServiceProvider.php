@@ -46,7 +46,7 @@ class ElimuswiftCoreServiceProvider extends ServiceProvider
          $this->publishes([
             __DIR__.'config/core.php' => config_path('core.php'),
         ]);
-        $this->loadMigrationsFrom(__DIR__.'/Migrations');
+       // $this->loadMigrationsFrom(__DIR__.'/Migrations');
         $this->loadRoutesFrom(__DIR__.'/routes.php');
     }
 
