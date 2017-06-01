@@ -45,7 +45,7 @@ class EnvatoApi
      **/
     public function getPurchaseData($code)
     {
-        $ch_verify = curl_init($this->url.$code);
+        $ch_verify = curl_init($this->url . $code);
         curl_setopt($ch_verify, CURLOPT_HTTPHEADER, $this->headers);
         curl_setopt($ch_verify, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch_verify, CURLOPT_RETURNTRANSFER, 1);
@@ -94,11 +94,11 @@ class EnvatoApi
     {
         $headers = [
                     'Content-type' => 'application/json',
-                    'Authorization' => 'Bearer '.$this->bearer,
+                    'Authorization' => 'Bearer ' . $this->bearer,
                    ];
         $h = [];
         foreach ($headers as $key => $value) {
-            $h[] = $key.':'.$value;
+            $h[] = $key . ':' . $value;
         }
 
         $this->headers = $h;

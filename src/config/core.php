@@ -1,8 +1,7 @@
 <?php
-return [
-	
-	'updates'	=> [
 
-		'updatesPath'	=> storage_path('updates')
-	]
+return [
+    'updates' => [
+        'updatesPath' => storage_path('updates'),
+    ],
 ];
